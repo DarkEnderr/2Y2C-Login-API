@@ -4,8 +4,7 @@ const client = new Discord.Client();
 require('dotenv').config();
 
 const config = {
-	token: process.env.TOKEN, // Discord token
-	ip: process.env.ip // Server IP
+	token: "<TOKEN>"
 };
 
 var delay = require('delay')
@@ -34,16 +33,20 @@ bot.on('windowOpen', () => {
     // var p3 =
     // var p4 =
 
+    // Thực hiện các mã pin đã được đặt
     bot.clickWindow(p1, 0, 0)
-    // console.log(p1)
     delay(1000)
     bot.clickWindow(p2, 0, 0)
-    // console.log(p2)
     delay(1000)
     bot.clickWindow(p3, 0, 0)
-    // console.log(p3)
     delay(1000)
-    bot.clickWindow(p4, 0, 0, () => { console.log(p4); console.log('success'); logged++;});
+    bot.clickWindow(p4, 0, 0);
+
+    // Cho bot vào server
+    setTimeout(() => { bot.chat('/2y2c') }, 5*1000)
+
+    delay(5000)
+    bot.clickWindow(10,0,0)
 });
 
 bot.on('end', () => {
