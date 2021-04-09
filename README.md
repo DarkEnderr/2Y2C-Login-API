@@ -1,2 +1,2 @@
-# Login-2Y2C-API
- API nhỏ tại server 2y2c
+# 2Y2C LOGIN API Github Source Code
+Đơn giản thì đây là code mẫu để có thể cho bot vào trong 2y2c.

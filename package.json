@@ -1,13 +1,12 @@
 {
-  "name": "login-2y2c-api",
-  "version": "1.0.0",
-  "description": "Small api on 2y2c",
+  "name": "2y2c-login-api",
+  "version": "1.2",
+  "description": "API public",
   "main": "index.js",
   "dependencies": {
     "delay": "^4.4.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "dotenv-flow": "^3.2.0",
     "mineflayer": "^2.40.1"
   },
   "scripts": {
@@ -15,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MoonVN571/Login-2Y2C-API.git"
+    "url": "git+https://github.com/MoonVN571/2Y2C-Login-API.git"
   },
   "author": "Moonz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MoonVN571/Login-2Y2C-API/issues"
+    "url": "https://github.com/MoonVN571/2Y2C-Login-API/issues"
   },
-  "homepage": "https://github.com/MoonVN571/Login-2Y2C-API#readme"
+  "homepage": "https://github.com/MoonVN571/2Y2C-Login-API#readme"
 }

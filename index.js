@@ -4,13 +4,10 @@ const client = new Discord.Client();
 require('dotenv').config();
 
 const config = {
-	token: "<TOKEN>"
+	token: "<TOKEN>" // Có thể dùng .env file để verify token bằng process.env.token thay vì nhập token vào "TOKEN"
 };
 
-var delay = require('delay')
-
 var mineflayer = require('mineflayer')
-
 
 client.on('ready', () => {
 	console.log('Bot online!');
@@ -35,18 +32,14 @@ bot.on('windowOpen', () => {
 
     // Thực hiện các mã pin đã được đặt
     bot.clickWindow(p1, 0, 0)
-    delay(1000)
     bot.clickWindow(p2, 0, 0)
-    delay(1000)
     bot.clickWindow(p3, 0, 0)
-    delay(1000)
     bot.clickWindow(p4, 0, 0);
 
     // Cho bot vào server
-    setTimeout(() => { bot.chat('/2y2c') }, 5*1000)
+    setTimeout(() => { bot.chat('/2y2c') }, 10*1000)
 
-    delay(5000)
-    bot.clickWindow(10,0,0)
+    setTimeout(() => { bot.clickWindow(10,0,0) }, 12*1000);
 });
 
 bot.on('end', () => {
