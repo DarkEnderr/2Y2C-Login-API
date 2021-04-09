@@ -25,7 +25,7 @@ bot.on('windowOpen', () => {
      * Nhập 4 số mã pin. 
      * Ví dụ: var p1 = 1;
      */
-    // var p1 =  
+    // var p1 = 
     // var p2 =
     // var p3 =
     // var p4 =
