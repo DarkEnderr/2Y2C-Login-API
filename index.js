@@ -6,7 +6,8 @@ var mineflayer = require('mineflayer');
 require('dotenv').config();
 
 const config = { // Đổi file "".env.example" thành ".env" để dùng .env
-	token: process.env.TOKEN // Có thể dùng .env file để verify token bằng "TOKEN" vì nhập token vào process.env.token thay
+	token: process.env.TOKEN, // Có thể dùng .env file để verify token bằng "TOKEN" vì nhập token vào process.env.token thay
+        pin: process.env.PIN
 };
 
 client.on('ready', () => {
