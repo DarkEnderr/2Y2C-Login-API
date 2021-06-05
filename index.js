@@ -10,6 +10,8 @@ const config = { // Đổi file "".env.example" thành ".env" để dùng .env
         pin: process.env.PIN
 };
 
+if(!config.token) throw console.log("Kiểm tra TOKEN của bạn đã đặt hay chưa.");
+
 client.on('ready', () => {
 	console.log('Bot online!');
 });
@@ -21,15 +23,22 @@ const bot = mineflayer.createBot({ // Tạo bot
     version: "1.16.4" // Version hiện tại của server
 });
 
-bot.on('windowOpen', () => { // Thực hiện khi khung login hiện ra ( inventory )
+bot.on('windowOpen', async (window) => { // Thực hiện khi khung login hiện ra
+    // Sửa dòng leak memory
+    window.requiresConfirmation = false;
+
     /* 
      * Nhập 4 số mã pin. Nhưng cần nhập trong .env 
-     * Cách nhập: Thí dụ pin là 9999, thì đặt phần pin là 9,9,9,9 ( Ví dụ: PIN=9,9,9,9 )
+     * Cách nhập: Thí dụ pin là 9999, thì đặt phần pin là 9,9,9,9 ( Thí dụ: PIN=9 9 9 9 )
      */
-    var p1 = config.pin.split(",")[0]; 
-    var p2 = config.pin.split(",")[1];
-    var p3 = config.pin.split(",")[2];
-    var p4 = config.pin.split(",")[3];
+    var v = config.pin;
+    var p1 = v.split(" ")[0]; // lấy mã sau dấu cách
+    var p2 = v.split(" ")[1]; // lấy mã sau dấu cách thứ 2
+    var p3 = v.split(" ")[2]; // lấy mã sau dấu cách thứ 3
+    var p4 = v.split(" ")[3]; // lấy mã sau dấu cách thứ 4
+
+
+    if(!p1 || !p2 || !p3 || !p4) throw console.log("Vui lòng kiểm tra lại mã pin, hãy đặt nếu như bạn chưa đặt nó.");
 
     // Thực hiện các mã pin đã được đặt
     bot.clickWindow(p1, 0, 0);
@@ -51,5 +60,8 @@ bot.on('message', msg => { // Log message từ chat game
     console.log(msg.toString());
 });
 
+// Login bot với TOKEN Discord
 client.login(config.token).catch(err => console.log(err));
+
+// Log lỗi
 client.on("error", (e) => { console.error(e) });
