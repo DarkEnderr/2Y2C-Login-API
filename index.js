@@ -5,7 +5,7 @@ var mineflayer = require('mineflayer');
 
 require('dotenv').config();
 
-const config = { // Đổi file "".env.example" thành ".env" để dùng .env
+const config = { // Đổi file ".env.example" thành ".env" để dùng .env
 	token: process.env.TOKEN, // Có thể dùng .env file để verify token bằng "TOKEN" vì nhập token vào process.env.token thay
         pin: process.env.PIN
 };
@@ -32,13 +32,13 @@ bot.on('windowOpen', async (window) => { // Thực hiện khi khung login hiện
      * Cách nhập: Thí dụ pin là 9999, thì đặt phần pin là 9,9,9,9 ( Thí dụ: PIN=9 9 9 9 )
      */
     var v = config.pin;
-    var p1 = v.split(" ")[0]; // lấy mã sau dấu cách
-    var p2 = v.split(" ")[1]; // lấy mã sau dấu cách thứ 2
-    var p3 = v.split(" ")[2]; // lấy mã sau dấu cách thứ 3
-    var p4 = v.split(" ")[3]; // lấy mã sau dấu cách thứ 4
+    var p1 = v.split(" ")[0]; // lấy mã trước dấu cách
+    var p2 = v.split(" ")[1]; // lấy mã sau dấu cách thứ 1
+    var p3 = v.split(" ")[2]; // lấy mã sau dấu cách thứ 2
+    var p4 = v.split(" ")[3]; // lấy mã sau dấu cách thứ 3
 
 
-    if(!p1 || !p2 || !p3 || !p4) throw console.log("Vui lòng kiểm tra lại mã pin, hãy đặt nếu như bạn chưa đặt nó.");
+    if(!p1 || !p2 || !p3 || !p4) throw console.log("Vui lòng kiểm tra lại mã pin, phải ghi đúng như example, hãy đặt nếu như bạn chưa đặt nó.");
 
     // Thực hiện các mã pin đã được đặt
     bot.clickWindow(p1, 0, 0);
@@ -47,9 +47,9 @@ bot.on('windowOpen', async (window) => { // Thực hiện khi khung login hiện
     bot.clickWindow(p4, 0, 0);
 
     // Cho bot vào server
-    setTimeout(() => { bot.chat('/2y2c') }, 10*1000); // Dùng /2y2c sau khi login xong
+    setTimeout(() => { bot.chat('/2y2c') }, 15*1000); // Dùng /2y2c sau khi login xong
 
-    setTimeout(() => { bot.clickWindow(10,0,0) }, 12*1000); // Sau đó bấm vào khung kia để vào server
+    setTimeout(() => { bot.clickWindow(10,0,0) }, 20*1000); // Sau đó bấm vào khung kia để vào server
 });
 
 bot.on('end', () => { // Log khi bot end
@@ -64,4 +64,4 @@ bot.on('message', msg => { // Log message từ chat game
 client.login(config.token).catch(err => console.log(err));
 
 // Log lỗi
-client.on("error", (e) => { console.error(e) });
+client.on("error", (e) => console.error(e));

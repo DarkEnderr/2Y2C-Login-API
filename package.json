@@ -4,7 +4,6 @@
   "description": "API public",
   "main": "index.js",
   "dependencies": {
-    "delay": "^4.4.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "mineflayer": "^2.40.1"
