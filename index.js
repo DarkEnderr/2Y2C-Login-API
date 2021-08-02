@@ -73,3 +73,4 @@ client.login(config.token).catch(err => console.log(err));
 
 // Log lỗi
 client.on("error", (e) => console.error(e));
+
