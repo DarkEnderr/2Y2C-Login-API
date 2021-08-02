@@ -1,3 +1,11 @@
+
+/**
+ *            2Y2C-Login-API
+ *  Yêu cầu giữ credit về source code.
+ * 
+ * 
+ * Project: https://github.com/MoonVN571/2Y2C-Login-API
+ */
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -10,7 +18,7 @@ const config = { // Đổi file ".env.example" thành ".env" để dùng .env
         pin: process.env.PIN
 };
 
-if(!config.token) throw console.log("Kiểm tra TOKEN của bạn đã đặt hay chưa.");
+if(!config.token) return console.log("Kiểm tra TOKEN của bạn đã đặt hay chưa.");
 
 client.on('ready', () => {
 	console.log('Bot online!');
@@ -38,7 +46,7 @@ bot.on('windowOpen', async (window) => { // Thực hiện khi khung login hiện
     var p4 = v.split(" ")[3]; // lấy mã sau dấu cách thứ 3
 
 
-    if(!p1 || !p2 || !p3 || !p4) throw console.log("Vui lòng kiểm tra lại mã pin, phải ghi đúng như example, hãy đặt nếu như bạn chưa đặt nó.");
+    if(!p1 || !p2 || !p3 || !p4) return console.log("Vui lòng kiểm tra lại mã pin, phải ghi đúng như example, hãy đặt nếu như bạn chưa đặt nó.");
 
     // Thực hiện các mã pin đã được đặt
     bot.clickWindow(p1, 0, 0);
