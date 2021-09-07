@@ -27,7 +27,7 @@ client.on('ready', () => {
 const bot = mineflayer.createBot({ // Tạo bot
     host: '2y2c.org',
     port: 25565,
-    username: "<USERNAME>", // Đặt tên của proxy bot
+    username: "EnderWork", // Đặt tên của proxy bot
     version: "1.16.4" // Version hiện tại của server
 });
 
